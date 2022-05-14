@@ -1,0 +1,45 @@
+<mat-card>
+    <h1>Add a book to your wishlist</h1>
+
+    <form [formGroup]="bookForm" (ngSubmit)="submitForm()" class="BookForm">
+
+        <mat-form-field appearance="fill">
+            <mat-label>Title</mat-label>
+            <input matInput formControlName="title">
+            <mat-error *ngIf="bookForm.get('title').hasError('required')">
+                Title is required.
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Author</mat-label>
+            <input matInput formControlName="author">
+            <mat-error *ngIf="bookForm.get('author').hasError('required')">
+                Author is required.
+            </mat-error>
+            <mat-error *ngIf="bookForm.get('author').hasError('pattern')">
+                Only letters and the following characters are allowed: , . ' -
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Genre</mat-label>
+            <mat-select formControlName="genre">
+                <mat-option *ngFor="let genre of genres" [value]="genre">
+                {{genre}}
+                </mat-option>
+            </mat-select>
+            <mat-error *ngIf="bookForm.get('genre').hasError('required')">
+                Genre is required.
+            </mat-error>
+        </mat-form-field>
+
+        <div class="formActions">
+            <button mat-button type="reset" (click)="bookForm.reset()">Clear</button>
+            <button mat-raised-button type="submit" [disabled]="bookForm.invalid">Submit</button>
+        </div>
+        
+        
+    </form>
+
+</mat-card>

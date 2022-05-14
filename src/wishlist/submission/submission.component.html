@@ -1,0 +1,8 @@
+<mat-card>
+    <h1>The following book has been added to your wishlist:</h1>
+    <div *ngIf="submission">
+        <h2>{{ submission.title }}</h2>
+        <h4>By {{ submission.author }} | Genre: {{ submission.genre }}</h4>
+        <p>Date added: {{ submission.dateAdded | date: shortDate }}</p>
+    </div>
+</mat-card>

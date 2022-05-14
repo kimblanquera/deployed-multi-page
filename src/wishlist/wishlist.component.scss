@@ -1,0 +1,13 @@
+.BookForm {
+    mat-form-field {
+        width: 100%;
+        display: block;
+    }
+
+    .formActions {
+        padding: 1rem;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+    }
+}
